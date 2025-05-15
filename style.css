@@ -1,16 +1,17 @@
 /* --- Global Resets & Variables --- */
 :root {
-    --bg-dark: #10101a; /* Very dark blue/purple */
-    --bg-medium: #1a1a2e; /* Slightly lighter dark blue/purple */
-    --primary-purple: #9D00FF; /* Vibrant Purple */
-    --accent-pink: #F8007A; /* Hot Pink/Magenta */
-    --accent-cyan: #00FFFF; /* Bright Cyan */
-    --text-light: #e0e0e0;
-    --text-medium: #b0b0b0;
-    --text-dark: #1f1f2e; /* For light backgrounds if any */
-    --glow-purple: rgba(157, 0, 255, 0.7);
-    --glow-pink: rgba(248, 0, 122, 0.6);
-    --nav-height: 60px; /* Navigation bar height */
+    --bg-header: #333333; /* Dark Gray for Header */
+    --bg-main-content: #ffffff; /* White for main content */
+    --bg-nav: #f8f9fa; /* Light gray for nav (or white) */
+    --accent-primary: #5cb85c; /* Green from your original CV */
+    --text-header-light: #ffffff;
+    --text-body-dark: #212529; /* Standard dark text */
+    --text-body-medium: #555555;
+    --nav-link-color: #6f42c1; /* Purple for nav links (as in screenshot) */
+    --nav-link-hover-color: #59369a;
+    --skill-tag-bg: #e9ecef; /* Light gray for skill tags */
+    --border-light: #dee2e6;
+    --nav-height: 56px; /* Adjusted nav height */
 }
 
 * {
@@ -20,26 +21,24 @@
 }
 
 html {
-    scroll-behavior: smooth; /* For smooth scrolling on nav clicks */
-    font-size: 16px; /* Base font size */
+    scroll-behavior: smooth;
+    font-size: 16px;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.7;
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    padding-top: var(--nav-height); /* To prevent content from hiding under fixed nav */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    font-family: 'Roboto', sans-serif; /* Sticking with Roboto, or use 'Lato' as in original */
+    line-height: 1.6;
+    background-color: var(--bg-main-content); /* Page background is light */
+    color: var(--text-body-dark);
+    padding-top: var(--nav-height);
+    overflow-x: hidden;
 }
 
 /* --- Navigation Bar --- */
 .main-nav {
-    background-color: rgba(16, 16, 26, 0.85); /* Semi-transparent dark */
-    backdrop-filter: blur(10px); /* Frosted glass effect */
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(157, 0, 255, 0.3); /* Subtle purple border */
-    box-shadow: 0 2px 15px var(--glow-purple);
+    background-color: var(--bg-nav);
+    border-bottom: 1px solid var(--border-light);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     position: fixed;
     top: 0;
     left: 0;
@@ -60,17 +59,15 @@ body {
 }
 
 .nav-logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.8rem;
-    color: var(--primary-purple);
+    font-family: 'Orbitron', sans-serif; /* Or your preferred font */
+    font-size: 1.6rem;
+    color: var(--nav-link-color);
     text-decoration: none;
     font-weight: 700;
-    text-shadow: 0 0 8px var(--glow-purple);
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.3s ease;
 }
 .nav-logo:hover {
-    color: var(--accent-pink);
-    text-shadow: 0 0 10px var(--glow-pink);
+    color: var(--nav-link-hover-color);
 }
 
 .main-nav ul {
@@ -79,134 +76,115 @@ body {
 }
 
 .main-nav ul li a {
-    color: var(--text-light);
+    color: var(--nav-link-color);
     text-decoration: none;
     padding: 10px 15px;
     margin: 0 5px;
     font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: 0.95rem;
+    font-weight: 500; /* Slightly bolder nav links */
+    font-size: 0.9rem;
     position: relative;
     transition: color 0.3s ease;
 }
 
-.main-nav ul li a::after {
+.main-nav ul li a::after { /* Underline effect on hover */
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 0;
+    bottom: 5px; /* Position underline slightly up */
     left: 50%;
     transform: translateX(-50%);
-    background-color: var(--accent-pink);
+    background-color: var(--nav-link-hover-color);
     transition: width 0.3s ease;
-    box-shadow: 0 0 5px var(--glow-pink);
 }
 
 .main-nav ul li a:hover {
-    color: var(--accent-pink);
+    color: var(--nav-link-hover-color);
 }
 
 .main-nav ul li a:hover::after {
-    width: 70%;
+    width: 60%;
 }
 
 
 /* --- Header (Home Section) --- */
 header#home {
-    min-height: calc(100vh - var(--nav-height));
+    /* min-height: calc(60vh - var(--nav-height)); Adjust height as needed, not full viewport */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 40px 20px;
-    background: radial-gradient(circle, var(--bg-medium) 0%, var(--bg-dark) 70%);
-    position: relative; /* For pseudo-elements if needed */
-    overflow: hidden; /* For animations */
+    padding: 60px 20px; /* More padding for header */
+    background-color: var(--bg-header);
+    color: var(--text-header-light);
+    border-bottom: 5px solid var(--accent-primary); /* Green accent border */
+    position: relative;
 }
 
 .header-content {
-    animation: fadeInFromBottom 1s ease-out forwards;
+    animation: fadeInFromBottom 0.8s ease-out forwards;
 }
 
 @keyframes fadeInFromBottom {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 header h1 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Responsive font size */
-    color: var(--text-light);
-    margin-bottom: 10px;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px var(--primary-purple), 0 0 20px var(--primary-purple), 0 0 5px #fff;
-    animation: pulseGlow 3s infinite alternate;
+    font-family: 'Montserrat', sans-serif; /* Using Montserrat for H1 as in original CV */
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    margin-bottom: 8px;
+    font-weight: 700;
 }
-
-@keyframes pulseGlow {
-    from { text-shadow: 0 0 8px var(--glow-purple), 0 0 15px var(--glow-purple), 0 0 3px #fff; }
-    to   { text-shadow: 0 0 15px var(--glow-purple), 0 0 30px var(--glow-purple), 0 0 8px #fff; }
-}
-
 
 header .subtitle {
-    font-size: clamp(1.1rem, 3vw, 1.5rem);
-    font-weight: 300;
-    color: var(--text-medium);
-    margin-bottom: 25px;
-    letter-spacing: 0.5px;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 300; /* Lighter subtitle */
+    color: #cccccc; /* Lighter gray for subtitle */
+    margin-bottom: 20px;
 }
 
 header .contact-info {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 header .contact-info p {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
+    color: #dddddd;
 }
 header .contact-info a {
-    color: var(--text-medium);
+    color: #dddddd;
     text-decoration: none;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.3s ease;
 }
 header .contact-info a:hover {
-    color: var(--accent-cyan);
-    text-shadow: 0 0 5px var(--accent-cyan);
+    color: var(--accent-primary);
 }
 header .contact-info svg {
-    fill: var(--primary-purple);
-    transition: fill 0.3s ease;
-}
-header .contact-info p:hover svg {
-    fill: var(--accent-cyan);
+    fill: var(--accent-primary); /* Green icons */
+    width: 14px; /* Adjust icon size */
+    height: 14px;
 }
 
 .social-links a {
-    color: var(--text-medium);
-    margin: 0 15px;
-    font-size: 1.8rem;
-    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    color: #cccccc;
+    margin: 0 12px;
+    font-size: 1.5rem; /* Slightly smaller social icons */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 .social-links a:hover {
-    color: var(--accent-pink);
-    transform: translateY(-3px) scale(1.1);
-    text-shadow: 0 0 8px var(--glow-pink);
+    color: var(--accent-primary);
+    transform: translateY(-2px);
 }
 .social-links svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
     vertical-align: middle;
 }
 
@@ -214,56 +192,45 @@ header .contact-info p:hover svg {
 .main-content-area {
     max-width: 900px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 30px 20px; /* Less padding than header */
 }
 
 .content-section {
-    background-color: rgba(26, 26, 46, 0.7); /* Semi-transparent section bg */
-    padding: 35px 30px;
-    margin-bottom: 40px;
-    border-radius: 10px;
-    border: 1px solid rgba(157, 0, 255, 0.2);
-    box-shadow: 0 0 15px rgba(157, 0, 255, 0.1), 0 0 30px rgba(157, 0, 255, 0.05);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    opacity: 0; /* For scroll animation */
-    transform: translateY(20px); /* For scroll animation */
-    /* animation: sectionFadeIn 0.8s ease-out forwards;
-       animation-delay: calc(var(--section-index, 0) * 0.2s); /* Stagger animation */
+    background-color: var(--bg-main-content); /* White background */
+    padding: 30px 25px;
+    margin-bottom: 30px;
+    border-radius: 6px; /* Subtle border radius */
+    opacity: 0; /* Start invisible */
+    transform: translateY(20px); /* Start slightly lower */
+    animation: sectionFadeIn 0.6s ease-out forwards; /* Apply animation directly */
+    /* animation-play-state: paused; << REMOVE THIS LINE */
 }
 
-/* Add this JavaScript to set --section-index for staggered animation if desired,
-   or use IntersectionObserver for true scroll-triggered animation.
-   For simplicity, we'll make them appear on load with a delay.
-   To use IntersectionObserver for on-scroll animation is better but more JS. */
-body:not(.no-js) .content-section { /* Apply animation if JS is enabled (conceptual) */
-    animation: sectionFadeInScroll 0.7s ease-out forwards;
-    /* The following is a placeholder for IntersectionObserver logic if you add it */
-    /* animation-play-state: paused; */
-}
-
-@keyframes sectionFadeInScroll {
+@keyframes sectionFadeIn { /* Renamed for clarity, or keep sectionFadeInScroll */
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-
-.content-section:hover {
-    transform: translateY(-5px) scale(1.01);
-    box-shadow: 0 0 25px var(--glow-purple), 0 0 50px var(--glow-purple);
-}
+/* Staggered animation for sections on page load */
+/* Adjust nth-child if you have more/less direct .content-section children in .main-content-area */
+.main-content-area > .content-section:nth-child(1) { animation-delay: 0.1s; }
+.main-content-area > .content-section:nth-child(2) { animation-delay: 0.2s; }
+.main-content-area > .content-section:nth-child(3) { animation-delay: 0.3s; }
+.main-content-area > .content-section:nth-child(4) { animation-delay: 0.4s; }
+.main-content-area > .content-section:nth-child(5) { animation-delay: 0.5s; }
+.main-content-area > .content-section:nth-child(6) { animation-delay: 0.6s; }
+/* Add more if you have more sections */
 
 .content-section h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2rem;
-    color: var(--primary-purple);
-    margin-bottom: 25px;
+    font-family: 'Montserrat', sans-serif; /* Consistent heading font */
+    font-size: 1.8rem;
+    color: var(--text-body-dark);
+    margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid var(--accent-pink);
+    border-bottom: 3px solid var(--accent-primary); /* Green underline */
     display: inline-block;
-    text-shadow: 0 0 6px var(--glow-pink);
-    letter-spacing: 1px;
 }
 
 /* --- Specific Section Styling --- */
@@ -274,129 +241,85 @@ body:not(.no-js) .content-section { /* Apply animation if JS is enabled (concept
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
 }
 
 .skills-list li {
-    background-color: rgba(157, 0, 255, 0.15); /* Purple tint */
-    color: var(--text-light);
-    padding: 10px 18px;
-    border-radius: 25px;
-    border: 1px solid var(--primary-purple);
-    font-size: 0.9rem;
-    font-weight: 400;
-    transition: all 0.3s ease;
-    box-shadow: 0 0 8px rgba(157, 0, 255, 0.3);
+    background-color: var(--skill-tag-bg);
+    color: var(--text-body-dark);
+    padding: 8px 15px;
+    border-radius: 20px; /* Pill shape */
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
     cursor: default;
 }
 .skills-list li:hover {
-    background-color: var(--primary-purple);
-    color: var(--bg-dark);
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 0 15px var(--glow-purple), 0 0 5px var(--text-light);
+    background-color: var(--accent-primary);
+    color: var(--text-header-light);
 }
 
 /* Project, Education Items */
 .project-item, .education-item {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px dashed rgba(157, 0, 255, 0.2);
-    transition: border-color 0.3s ease;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eeeeee; /* Lighter border */
 }
 .project-item:last-child, .education-item:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
 }
-.project-item:hover, .education-item:hover {
-    border-bottom-color: var(--accent-pink);
-}
 
 .project-item h3, .education-item h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.4rem;
-    color: var(--accent-cyan);
-    margin-bottom: 8px;
-    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
-    transition: color 0.3s ease, text-shadow 0.3s ease;
-}
-.project-item:hover h3, .education-item:hover h3 {
-    color: var(--accent-pink);
-    text-shadow: 0 0 8px var(--glow-pink);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    color: var(--text-body-dark); /* Darker heading for project titles */
+    margin-bottom: 6px;
+    font-weight: 600;
 }
 
 .project-date, .education-date {
     font-size: 0.85rem;
-    color: var(--text-medium);
-    font-weight: 300;
+    color: var(--text-body-medium);
+    font-weight: 400;
     font-style: italic;
 }
 
 .project-item p, .education-item p, #about p {
     margin-bottom: 10px;
-    color: var(--text-light);
+    color: var(--text-body-medium);
     font-size: 0.95rem;
 }
 
 /* Competitions & Languages Lists */
 .competitions-list, .languages-list {
-    list-style: none; /* Or use 'square' or custom icons */
-    padding-left: 0;
+    list-style-type: disc; /* Standard disc bullets */
+    padding-left: 20px;
+    color: var(--text-body-medium);
 }
 .competitions-list li, .languages-list li {
-    margin-bottom: 10px;
-    color: var(--text-light);
+    margin-bottom: 8px;
     font-size: 0.95rem;
-    padding-left: 20px;
-    position: relative;
 }
-.competitions-list li::before, .languages-list li::before {
-    content: '»'; /* Or a cyberpunk-ish character */
-    position: absolute;
-    left: 0;
-    color: var(--accent-pink);
-    font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-.competitions-list li:hover::before, .languages-list li:hover::before {
-    color: var(--accent-cyan);
-    transform: translateX(3px);
+.competitions-list li strong {
+    color: var(--text-body-dark);
 }
 
 /* --- Footer --- */
 footer {
-    background-color: var(--bg-dark); /* Consistent with body bg or slightly different */
-    border-top: 1px solid rgba(157, 0, 255, 0.3);
-    color: var(--text-medium);
+    background-color: #f1f1f1; /* Light gray footer */
+    border-top: 1px solid var(--border-light);
+    color: var(--text-body-medium);
     text-align: center;
-    padding: 30px 20px;
-    font-size: 0.9rem;
-    margin-top: 40px; /* Space before footer */
-    box-shadow: 0 -5px 15px rgba(157, 0, 255, 0.1);
+    padding: 25px 20px;
+    font-size: 0.85rem;
+    margin-top: 30px;
 }
 
 footer p {
     margin: 0;
 }
-
-/* --- Animations for Sections on Scroll (Basic Setup) --- */
- .content-section {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInSection 0.6s ease-out forwards;
-} 
-
-/* Staggered animation using CSS (requires JS to add --section-index or use nth-child) */
- @keyframes fadeInSection {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-.content-section:nth-child(1) { animation-delay: 0.1s; }
-.content-section:nth-child(2) { animation-delay: 0.2s; }
-.content-section:nth-child(3) { animation-delay: 0.3s; }
-
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
@@ -404,33 +327,31 @@ footer p {
         flex-direction: column;
         align-items: center;
         height: auto;
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
     .main-nav {
-        height: auto; /* Adjust nav height */
+        height: auto;
     }
     body {
-        padding-top: 100px; /* Adjust based on new nav height */
+        padding-top: 90px; /* Adjust based on new nav height when stacked */
     }
     .main-nav ul {
-        margin-top: 10px;
+        margin-top: 8px;
         flex-wrap: wrap;
         justify-content: center;
     }
     .main-nav ul li a {
-        padding: 8px 10px;
-        font-size: 0.9rem;
+        padding: 6px 10px;
+        font-size: 0.85rem;
     }
 
     header#home {
-        min-height: auto; /* Adjust height for smaller screens */
-        padding-top: 60px;
-        padding-bottom: 60px;
+        padding: 40px 15px;
     }
 
     .content-section h2 {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
     }
     .project-item h3, .education-item h3 {
         font-size: 1.2rem;
@@ -439,16 +360,18 @@ footer p {
 
 @media (max-width: 480px) {
     body {
-        padding-top: 130px; /* Further adjust if nav wraps more */
+        padding-top: 110px; /* May need further adjustment if nav items wrap a lot */
     }
     header h1 {
-        letter-spacing: 0;
+        font-size: 1.8rem;
+    }
+    header .subtitle {
+        font-size: 0.9rem;
+    }
+    .content-section h2 {
+        font-size: 1.4rem;
     }
     .skills-list {
         justify-content: center;
-    }
-    .skills-list li {
-        padding: 8px 15px;
-        font-size: 0.85rem;
     }
 }
