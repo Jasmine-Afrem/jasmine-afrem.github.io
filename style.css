@@ -106,11 +106,11 @@ img, svg {
     font-family: var(--font-primary);
     font-size: 1.6rem; /* Adjusted size */
     font-weight: 700; /* Bolder */
-    color: var(--primary-purple-dark);
+    color: var(--primary-purple); /* MODIFIED: Changed to main primary purple */
 }
 
 .nav-logo:hover {
-    color: var(--primary-purple);
+    color: var(--secondary-purple); /* Keep hover distinct */
 }
 
 .main-nav ul {
@@ -152,40 +152,69 @@ img, svg {
 /* 3. Header / Hero (#home) */
 #home {
     min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; /* MODIFIED: Keep flex for centering .header-content */
+    flex-direction: column; /* MODIFIED: Stack image container and content vertically */
+    align-items: center;    /* MODIFIED */
+    justify-content: flex-start; /* MODIFIED: Align content to start, actual centering of text done in header-content */
     text-align: center;
-    padding: 120px 20px 60px;
-    background-image: linear-gradient(135deg, var(--primary-purple-dark) 0%, var(--secondary-purple) 70%, var(--light-purple-accent) 100%); /* Adjusted gradient */
+    padding: 0; /* MODIFIED: Padding handled by inner containers */
+    background-image: linear-gradient(135deg, var(--primary-purple-dark) 0%, var(--secondary-purple) 70%, var(--light-purple-accent) 100%);
     color: var(--text-light);
     position: relative;
     overflow: hidden;
 }
 
+/* MODIFIED: SVG Wave removed by deleting or commenting out the #home::before rule */
+/*
 #home::before {
     content: '';
     position: absolute;
     bottom: -1px;
     left: 0;
     width: 100%;
-    height: 120px; /* Slightly taller wave */
-    /* Updated fill to match new body background */
+    height: 120px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23F8F7FF' fill-opacity='1' d='M0,192L48,176C96,160,192,128,288,133.3C384,139,480,181,576,208C672,235,768,245,864,224C960,203,1056,149,1152,117.3C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
     z-index: 1;
 }
+*/
+
+/* ADDED: For the background image */
+.header-background-image-container {
+    width: 100%;
+    height: 35vh; /* Adjust height as needed, e.g., 200px, 25vh, etc. */
+    overflow: hidden;
+    position: relative; /* Optional, for future overlays */
+    /* This container should be above the fixed nav if nav is not part of #home's flow */
+    /* but since nav is fixed, this will appear below the nav unless nav's z-index is lower
+       or this container has a margin-top equal to nav height */
+    margin-top: 70px; /* Approximate height of the navbar, adjust if needed */
+}
+
+.header-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.5; /* Adjust transparency: 0.0 (invisible) to 1.0 (fully opaque) */
+}
 
 .header-content {
     position: relative;
-    z-index: 2;
+    z-index: 2; /* Ensure text is above any background elements */
     max-width: 800px;
+    padding: 30px 20px; /* Adjust padding as needed */
+    flex-grow: 1; /* Allow this to take remaining space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically within its own space */
+    width: 100%; /* Ensure it takes full width to center its text content */
 }
 
 .header-content h1 {
-    font-size: 3.2rem; /* Slightly adjusted */
+    font-size: 3.2rem;
     font-weight: 800;
     color: var(--text-light);
     margin-bottom: 0.5rem;
@@ -193,10 +222,10 @@ img, svg {
 }
 
 .header-content .subtitle {
-    font-size: 1.4rem; /* Adjusted */
+    font-size: 1.4rem;
     font-family: var(--font-secondary);
     font-weight: 300;
-    color: var(--very-light-purple-bg); /* Softer subtitle color */
+    color: var(--very-light-purple-bg);
     margin-bottom: 1.8rem;
 }
 
@@ -214,7 +243,7 @@ img, svg {
 }
 
 .contact-info svg {
-    fill: var(--very-light-purple-bg); /* Consistent soft color */
+    fill: var(--very-light-purple-bg);
     width: 18px;
     height: 18px;
 }
@@ -224,7 +253,7 @@ img, svg {
     font-weight: 400;
 }
 .contact-info a:hover {
-    color: #fff; /* Brighter white on hover */
+    color: #fff;
     text-decoration: underline;
 }
 
@@ -236,29 +265,30 @@ img, svg {
 }
 
 .social-links a svg {
-    width: 26px; /* Slightly smaller */
+    width: 26px;
     height: 26px;
     fill: var(--text-light);
     transition: fill var(--transition-speed), transform var(--transition-speed);
 }
 
 .social-links a:hover svg {
-    fill: #fff; /* Brighter white on hover */
-    transform: translateY(-2px) scale(1.05); /* Subtle lift */
+    fill: #fff;
+    transform: translateY(-2px) scale(1.05);
 }
 
 /* 4. Main Content & Generic Section Styling */
 .main-content-area {
     padding-top: 70px;
     padding-bottom: 70px;
+    background-color: var(--soft-lavender-page-bg); /* Ensure this matches the page background if header wave was relying on it */
 }
 
 .content-section {
-    max-width: 960px; /* Slightly wider */
-    margin: 0 auto 4.5rem auto; /* More bottom margin */
-    padding: 2.5rem; /* More padding */
+    max-width: 960px;
+    margin: 0 auto 4.5rem auto;
+    padding: 2.5rem;
     background-color: var(--bg-light);
-    border-radius: var(--border-radius-lg); /* Softer radius */
+    border-radius: var(--border-radius-lg);
     box-shadow: var(--box-shadow-soft);
 }
 
@@ -269,7 +299,7 @@ img, svg {
 .content-section h2 {
     text-align: center;
     position: relative;
-    padding-bottom: 0.75rem; /* More space for underline */
+    padding-bottom: 0.75rem;
     margin-bottom: 2.5rem;
 }
 
@@ -279,9 +309,9 @@ img, svg {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 70px; /* Wider underline */
-    height: 3.5px; /* Thicker underline */
-    background-image: linear-gradient(to right, var(--primary-purple), var(--light-purple-accent)); /* Gradient underline */
+    width: 70px;
+    height: 3.5px;
+    background-image: linear-gradient(to right, var(--primary-purple), var(--light-purple-accent));
     border-radius: var(--border-radius-sm);
 }
 
@@ -291,7 +321,7 @@ img, svg {
 #about p {
     font-size: 1.1rem;
     text-align: justify;
-    color: var(--text-muted); /* Softer text color for paragraphs */
+    color: var(--text-muted);
 }
 
 /* Skills Section */
@@ -305,12 +335,12 @@ img, svg {
 .skills-list li {
     background-color: var(--very-light-purple-bg);
     color: var(--primary-purple-dark);
-    padding: 0.6rem 1.2rem; /* More padding */
-    border-radius: var(--border-radius-md); /* Softer radius */
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius-md);
     font-family: var(--font-secondary);
     font-weight: 500;
     font-size: 0.95rem;
-    border: 1px solid transparent; /* Start transparent */
+    border: 1px solid transparent;
     box-shadow: 0 2px 5px rgba(106, 13, 173, 0.05);
     transition: background-color var(--transition-speed), color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
 }
@@ -323,21 +353,20 @@ img, svg {
 }
 
 /* Projects Section */
-.project-grid { /* New class for grid layout */
+.project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
 .project-item {
-    background-color: var(--bg-light); /* Can be --very-light-purple-bg for contrast with section */
-    padding: 1.8rem; /* More padding */
+    background-color: var(--bg-light);
+    padding: 1.8rem;
     border-radius: var(--border-radius-md);
-    /* border: 1px solid var(--very-light-purple-bg); */ /* Optional very light border */
     box-shadow: var(--box-shadow-soft);
     transition: box-shadow var(--transition-speed), transform var(--transition-speed);
     display: flex;
-    flex-direction: column; /* To push link to bottom */
+    flex-direction: column;
 }
 
 .project-item:hover {
@@ -348,7 +377,7 @@ img, svg {
 .project-item h3 {
     display: flex;
     justify-content: space-between;
-    align-items: baseline; /* Better alignment for date */
+    align-items: baseline;
     flex-wrap: wrap;
 }
 
@@ -358,18 +387,18 @@ img, svg {
     color: var(--text-muted);
     font-style: italic;
     margin-left: 0.5rem;
-    white-space: nowrap; /* Prevent date from wrapping too soon */
+    white-space: nowrap;
 }
 
 .project-item p {
-    font-size: 0.95rem; /* Slightly smaller project description */
+    font-size: 0.95rem;
     color: var(--text-muted);
-    flex-grow: 1; /* Make paragraph take available space */
-    margin-bottom: 1rem; /* Space before link */
+    flex-grow: 1;
+    margin-bottom: 1rem;
 }
 
 .project-link {
-    display: inline-flex; /* For icon alignment */
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
@@ -378,8 +407,8 @@ img, svg {
     border-radius: var(--border-radius-sm);
     font-weight: 500;
     font-size: 0.9rem;
-    margin-top: auto; /* Push to bottom if flex container */
-    align-self: flex-start; /* Align to left */
+    margin-top: auto;
+    align-self: flex-start;
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
@@ -406,23 +435,24 @@ img, svg {
     content: '';
     position: absolute;
     left: 0;
-    top: 0.5em; 
-    transform: translateY(-50%); 
-    width: 6px; 
+    top: 0.5em;
+    transform: translateY(-50%);
+    width: 6px;
     height: 6px;
-    background-color: var(--light-purple-accent); 
-    border-radius: 50%; /
+    background-color: var(--light-purple-accent);
+    border-radius: 50%; /* Corrected: removed trailing slash */
 }
 
 .competitions-list li strong {
     font-weight: 600;
     color: var(--primary-purple-dark);
 }
+
 /* Education Section */
 .education-item {
     margin-bottom: 1.8rem;
     padding-bottom: 1.8rem;
-    border-bottom: 1px solid var(--very-light-purple-bg); /* Softer border */
+    border-bottom: 1px solid var(--very-light-purple-bg);
 }
 .education-item:last-child {
     margin-bottom: 0;
@@ -456,7 +486,7 @@ img, svg {
 .languages-list li {
     margin-bottom: 0.6rem;
     font-size: 1.05rem;
-    padding-left: 1.2rem; /* Adjusted padding for the dot */
+    padding-left: 1.2rem;
     position: relative;
     color: var(--text-muted);
 }
@@ -467,10 +497,10 @@ img, svg {
     left: 0;
     top: 0.5em;
     transform: translateY(-50%);
-    width: 6px; 
+    width: 6px;
     height: 6px;
-    background-color: var(--light-purple-accent); 
-    border-radius: 50%; 
+    background-color: var(--light-purple-accent);
+    border-radius: 50%;
 }
 
 /* 6. Footer */
@@ -484,7 +514,7 @@ footer {
 
 .footer-container p {
     font-size: 0.9rem;
-    color: var(--light-purple-accent); 
+    color: var(--light-purple-accent);
 }
 
 /* 7. Responsive Design (Media Queries) */
@@ -497,12 +527,12 @@ footer {
         font-size: 1.3rem;
     }
     .content-section {
-        padding: 2rem; /* Adjust padding */
+        padding: 2rem;
         margin-left: 20px;
         margin-right: 20px;
     }
     .project-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust minmax for tablets */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
 }
 
@@ -533,7 +563,7 @@ footer {
         transform: translateX(-50%);
     }
 
-    .nav-toggle { /* You'd need to add a hamburger button in HTML and JS to toggle a class like 'mobile-nav-open' on .main-nav */
+    .nav-toggle {
         display: block;
         font-size: 1.5rem;
         background: none;
@@ -543,28 +573,33 @@ footer {
     }
     /* .main-nav.mobile-nav-open ul { max-height: 500px; } */
 
-
+    /* Adjust header layout for mobile with image */
     #home {
-        padding-top: 100px;
-        padding-bottom: 40px;
+        /* min-height might not be 100vh if content pushes it, that's fine */
+        padding: 0; /* Let inner containers manage padding */
     }
-    #home::before {
-        height: 100px;
+    .header-background-image-container {
+        height: 30vh; /* Adjust image height for mobile */
+        margin-top: 60px; /* Adjust for potentially smaller nav height or preference */
     }
-
+    .header-content {
+        padding: 20px; /* Reduce padding for mobile */
+    }
     .header-content h1 {
         font-size: 2.2rem;
     }
     .header-content .subtitle {
         font-size: 1.1rem;
     }
+
+
     .contact-info p {
         font-size: 0.9rem;
         flex-direction: column;
         gap: 0.2rem;
     }
 
-    h1 { font-size: 2.2rem; }
+    h1 { font-size: 2.2rem; } /* General h1, already set above for header */
     h2 { font-size: 1.7rem; }
     h3 { font-size: 1.2rem; }
 
@@ -574,7 +609,7 @@ footer {
         padding: 1.5rem;
     }
     .project-grid {
-        grid-template-columns: 1fr; /* Stack projects on smaller mobile */
+        grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     .project-item h3, .education-item h3 {
@@ -593,6 +628,9 @@ footer {
     .nav-container { padding: 0 15px; }
     .nav-logo { font-size: 1.4rem; }
 
+    .header-background-image-container {
+        height: 25vh; /* Further adjust image height for small screens */
+    }
     .header-content h1 {
         font-size: 1.9rem;
     }
