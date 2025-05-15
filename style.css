@@ -1,25 +1,32 @@
+/* style.css */
+
+/* 1. Global Styles & Variables */
 :root {
-    --primary-purple: #7F00FF;
+    --primary-purple: #7F00FF; /* Violet */
     --primary-purple-dark: #6A0DAD;
-    --secondary-purple: #A4508B;
-    --light-purple-accent: #BE93FD;
-    --very-light-purple-bg: #F9F6FF; /* Made this even lighter, almost white */
-    --soft-lavender-page-bg: #F8F7FF;
-    --footer-bg: #4A0E6A;
+    --secondary-purple: #A4508B; /* Pinkish-purple for gradients */
+    --light-purple-accent: #BE93FD; /* Lighter accent */
+    --very-light-purple-bg: #EDE7F6; /* Softer, very light lavender for backgrounds/elements */
+    --soft-lavender-page-bg: #F8F7FF; /* Page background - very soft */
+    --footer-bg: #4A0E6A; /* Deep, slightly softer dark purple */
+
     --text-light: #F5F5F5;
-    --text-dark: #2C2C2C;
-    --text-muted: #555555;
+    --text-dark: #2C2C2C; /* Slightly softer dark */
+    --text-muted: #555555; /* Softer muted */
     --bg-light: #FFFFFF;
+
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Lato', sans-serif;
+
     --border-radius-sm: 5px;
     --border-radius-md: 10px;
     --border-radius-lg: 15px;
-    --box-shadow-soft: 0 6px 18px rgba(106, 13, 173, 0.07); /* Softened shadow further */
-    --box-shadow-stronger: 0 8px 25px rgba(106, 13, 173, 0.1);
+    --box-shadow-soft: 0 6px 18px rgba(106, 13, 173, 0.08);
+    --box-shadow-stronger: 0 8px 25px rgba(106, 13, 173, 0.12);
     --transition-speed: 0.3s ease-in-out;
-    --nav-height: 70px;
-    --banner-height: 150px;
+
+    --nav-height: 70px; /* Approximate height of the navbar, adjust if padding/font changes */
+    --banner-height: 150px; /* <<< ADJUST HEIGHT OF THE TOP BANNER IMAGE HERE */
 }
 
 *,
@@ -53,11 +60,11 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: 2.8rem; }
 h2 { font-size: 2rem; margin-bottom: 1em; }
-h3 { font-size: 1.3rem; color: var(--primary-purple-dark); margin-bottom: 0.6em;} /* Changed project title color */
+h3 { font-size: 1.3rem; color: var(--primary-purple); margin-bottom: 0.6em;}
 
 a {
     text-decoration: none;
-    color: var(--primary-purple-dark); /* Default link color darker */
+    color: var(--primary-purple);
     transition: color var(--transition-speed);
 }
 
@@ -68,26 +75,31 @@ a:hover {
 ul { list-style: none; }
 img, svg { max-width: 100%; height: auto; vertical-align: middle; }
 
+/* NEW: Page Banner Styling */
 .page-banner {
     width: 100%;
     height: var(--banner-height);
     overflow: hidden;
-    position: relative;
+    position: relative; /* To allow opacity on child if needed, and good practice */
 }
 
 .page-banner-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.65;
+    object-fit: cover; /* Ensures the image covers the banner area */
+    object-position: center; /* Or top, bottom, etc. */
+    opacity: 0.65; /* <<< ADJUST OPACITY OF BANNER IMAGE (0.0 to 1.0) */
+    /* If your image has a light background and you want to blend it with a light page bg,
+       you might not even need opacity, or a higher one like 0.8-0.9 */
 }
 
+
+/* 2. Navigation */
 .main-nav {
     background-color: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 0.75rem 0;
+    padding: 0.75rem 0; /* Adjust padding to help define --nav-height */
     height: var(--nav-height);
     position: fixed;
     width: 100%;
@@ -95,8 +107,8 @@ img, svg { max-width: 100%; height: auto; vertical-align: middle; }
     left: 0;
     z-index: 1000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    display: flex;
-    align-items: center;
+    display: flex; /* For vertical alignment of nav-container */
+    align-items: center; /* Vertically align nav-container */
 }
 
 .nav-container {
@@ -153,26 +165,37 @@ img, svg { max-width: 100%; height: auto; vertical-align: middle; }
 
 .nav-toggle { display: none; }
 
+
+/* 3. Header / Hero (#home) */
 #home {
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    /* This padding-top ensures content within #home starts BELOW the fixed navbar AND the banner */
     padding-top: calc(var(--nav-height) + var(--banner-height));
+    /* Optional: if you want the purple area to feel like it *only* starts after the banner/nav
+       and doesn't try to fill space *behind* them (which it would due to padding): */
+    /* box-sizing: border-box; */ /* Already global, but good to remember */
+    /* min-height: calc(100vh - var(--nav-height) - var(--banner-height)); */ /* This makes the purple area smaller */
+
     background-image: linear-gradient(135deg, var(--primary-purple-dark) 0%, var(--secondary-purple) 70%, var(--light-purple-accent) 100%);
     color: var(--text-light);
-    position: relative;
-    overflow: hidden;
-    padding-left: 20px;
+    position: relative; /* For z-indexing .header-content if needed */
+    overflow: hidden; /* In case any pseudo-elements extend */
+    padding-left: 20px; /* Horizontal padding */
     padding-right: 20px;
-    padding-bottom: 60px;
+    padding-bottom: 60px; /* Some bottom padding for the content */
 }
 
+/* The #home::before wave is permanently removed/commented out */
+
 .header-content {
-    position: relative;
-    z-index: 2;
+    position: relative; /* z-index context */
+    z-index: 2; /* Ensure text is above the gradient background */
     max-width: 800px;
+    /* Padding inside header-content is for its own elements, not for clearing nav/banner */
 }
 
 .header-content h1 {
@@ -213,11 +236,17 @@ img, svg { max-width: 100%; height: auto; vertical-align: middle; }
 }
 .social-links a:hover svg { fill: #fff; transform: translateY(-2px) scale(1.05); }
 
+/* 4. Main Content & Generic Section Styling */
 .main-content-area {
-    padding-top: 70px;
+    /* This starts AFTER #home. If #home has padding-top for nav and banner,
+       this section will naturally flow after it. */
+    padding-top: 70px; /* Or whatever spacing you want between #home and first section */
     padding-bottom: 70px;
     background-color: var(--soft-lavender-page-bg);
 }
+
+/* ... (Rest of your CSS: .content-section, specific sections, footer, media queries) ... */
+/* Ensure the media queries also respect the new layout if header structure changes drastically on mobile */
 
 .content-section {
     max-width: 960px;
@@ -251,12 +280,16 @@ img, svg { max-width: 100%; height: auto; vertical-align: middle; }
     border-radius: var(--border-radius-sm);
 }
 
+/* 5. Specific Sections Styling */
+
+/* About Section */
 #about p {
     font-size: 1.1rem;
     text-align: justify;
     color: var(--text-muted);
 }
 
+/* Skills Section */
 .skills-list {
     display: flex;
     flex-wrap: wrap;
@@ -284,6 +317,7 @@ img, svg { max-width: 100%; height: auto; vertical-align: middle; }
     box-shadow: 0 4px 10px rgba(106, 13, 173, 0.15);
 }
 
+/* Projects Section */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -291,7 +325,7 @@ img, svg { max-width: 100%; height: auto; vertical-align: middle; }
 }
 
 .project-item {
-    background-color: var(--very-light-purple-bg); /* Changed to match example */
+    background-color: var(--bg-light);
     padding: 1.8rem;
     border-radius: var(--border-radius-md);
     box-shadow: var(--box-shadow-soft);
@@ -305,12 +339,11 @@ img, svg { max-width: 100%; height: auto; vertical-align: middle; }
     transform: translateY(-5px);
 }
 
-.project-item h3 { /* Project titles already use --primary-purple-dark due to global h3 rule change */
+.project-item h3 {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     flex-wrap: wrap;
-    color: var(--primary-purple-dark); /* Explicitly ensure project titles use this */
 }
 
 .project-date {
@@ -334,7 +367,7 @@ img, svg { max-width: 100%; height: auto; vertical-align: middle; }
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background-color: #EAE4F4; /* Slightly different, very light purple for button */
+    background-color: var(--very-light-purple-bg);
     color: var(--primary-purple-dark);
     border-radius: var(--border-radius-sm);
     font-weight: 500;
@@ -349,10 +382,12 @@ img, svg { max-width: 100%; height: auto; vertical-align: middle; }
 }
 
 .project-link:hover {
-    background-color: var(--primary-purple-dark);
+    background-color: var(--primary-purple);
     color: var(--text-light);
 }
 
+
+/* Competitions Section */
 .competitions-list li {
     margin-bottom: 0.85rem;
     padding-left: 1.2rem;
@@ -378,6 +413,7 @@ img, svg { max-width: 100%; height: auto; vertical-align: middle; }
     color: var(--primary-purple-dark);
 }
 
+/* Education Section */
 .education-item {
     margin-bottom: 1.8rem;
     padding-bottom: 1.8rem;
@@ -410,6 +446,8 @@ img, svg { max-width: 100%; height: auto; vertical-align: middle; }
     color: var(--text-muted);
 }
 
+
+/* Languages Section */
 .languages-list li {
     margin-bottom: 0.6rem;
     font-size: 1.05rem;
@@ -430,6 +468,7 @@ img, svg { max-width: 100%; height: auto; vertical-align: middle; }
     border-radius: 50%;
 }
 
+/* 6. Footer */
 footer {
     background-color: var(--footer-bg);
     color: var(--text-light);
@@ -443,8 +482,12 @@ footer {
     color: var(--light-purple-accent);
 }
 
+/* 7. Responsive Design (Media Queries) */
+
 @media (max-width: 992px) {
+    /* :root { --banner-height: 120px; } */ /* Optionally adjust banner height */
     #home { padding-top: calc(var(--nav-height) + var(--banner-height)); }
+
     .header-content h1 { font-size: 2.8rem; }
     .header-content .subtitle { font-size: 1.3rem; }
     .content-section { padding: 2rem; margin-left: 20px; margin-right: 20px; }
@@ -452,11 +495,16 @@ footer {
 }
 
 @media (max-width: 768px) {
+    :root {
+        /* --banner-height: 100px; */ /* Example: smaller banner on mobile */
+        /* --nav-height: 60px; */ /* If nav shrinks */
+    }
     #home {
         padding-top: calc(var(--nav-height) + var(--banner-height));
-        min-height: auto;
-        padding-bottom: 40px;
+        min-height: auto; /* Allow content to define height more naturally on mobile after banner */
+        padding-bottom: 40px; /* Ensure some space at the bottom */
     }
+
     .main-nav ul {
         flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%;
         background-color: rgba(255, 255, 255, 0.98); box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -466,12 +514,15 @@ footer {
     .main-nav ul li a { display: block; padding: 0.8rem 1rem; }
     .main-nav ul li a::after { left: 50%; transform: translateX(-50%); }
     .nav-toggle { display: block; font-size: 1.5rem; background: none; border: none; color: var(--primary-purple); cursor: pointer; }
+
     .header-content { padding: 20px; }
     .header-content h1 { font-size: 2.2rem; }
     .header-content .subtitle { font-size: 1.1rem; }
     .contact-info p { font-size: 0.9rem; flex-direction: column; gap: 0.2rem; }
+
     h2 { font-size: 1.7rem; }
     h3 { font-size: 1.2rem; }
+
     .content-section { margin-left: 15px; margin-right: 15px; padding: 1.5rem; }
     .project-grid { grid-template-columns: 1fr; gap: 1.5rem; }
     .project-item h3, .education-item h3 { flex-direction: column; align-items: flex-start; }
@@ -479,12 +530,16 @@ footer {
 }
 
 @media (max-width: 480px) {
+    /* :root { --banner-height: 80px; } */ /* Example: even smaller banner */
     #home { padding-top: calc(var(--nav-height) + var(--banner-height)); }
+
     .nav-container { padding: 0 15px; }
     .nav-logo { font-size: 1.4rem; }
+
     .header-content h1 { font-size: 1.9rem; }
     .header-content .subtitle { font-size: 1rem; }
     .social-links a svg { width: 24px; height: 24px; }
+
     .skills-list li { font-size: 0.85rem; padding: 0.5rem 1rem; }
     .content-section { padding: 1.2rem; }
     .project-item { padding: 1.2rem; }
