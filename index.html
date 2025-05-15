@@ -8,10 +8,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="icon-github" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        </symbol>
+    </svg>
 
     <nav class="main-nav">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">J.A.</a>
+            <a href="#home" class="nav-logo">Personal Website</a> 
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -42,9 +47,7 @@
             </div>
             <div class="social-links">
                 <a href="https://github.com/Jasmine-Afrem" target="_blank" title="GitHub">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
-                    </svg>
+                    <svg width="24" height="24" fill="currentColor"><use xlink:href="#icon-github"></use></svg>
                 </a>
                 <a href="https://www.linkedin.com/in/jasmine-emilia-afrem-371505332/" target="_blank" title="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
@@ -58,7 +61,7 @@
     <main class="main-content-area">
         <section id="about" class="content-section">
             <h2>About Me</h2>
-            <p>As a dedicated and ambitious second-year Computer Science student, I am driven by a passion for continuous learning and skill development in the ever-evolving field of technology. I'm particularly drawn to web development, where I enjoy blending creativity and logic to build user-focused solutions. Currently, I am expanding my expertise in modern web development frameworks and programming languages. With a commitment to keep up with industry trends, I embrace challenges that allow me to grow both personally and professionally.</p>
+            <p>I'm a second-year Computer Science student with a strong interest in learning and improving my skills, especially in web development. I enjoy combining creativity and problem-solving to build useful and user-friendly websites. Right now, I'm focusing on learning modern web frameworks and programming languages. I'm always open to new challenges that help me grow and stay updated with the latest trends in tech.</p>
         </section>
 
         <section id="skills" class="content-section">
@@ -69,6 +72,7 @@
                 <li>JavaScript</li>
                 <li>React</li>
                 <li>React Native</li>
+                <li>Next.js</li>
                 <li>Java</li>
                 <li>Python</li>
                 <li>C/C++</li>
@@ -78,25 +82,58 @@
 
         <section id="projects" class="content-section">
             <h2>Projects</h2>
-            <div class="project-item">
-                <h3>Quizzy - Trivia Game <span class="project-date">(2024)</span></h3>
-                <p>Quizzy is an engaging trivia game app built with Java for robust functionality and MySQL for efficient data management. Designed to deliver a fun and challenging experience, Quizzy caters to trivia enthusiasts.</p>
-            </div>
-            <div class="project-item">
-                <h3>NutriHub <span class="project-date">(November 2023)</span></h3>
-                <p>NutriHub is a forward-thinking nutrition app, developed by me and my team during the 5th edition of Unihack. Built with React Native and Expo GO, the app incorporates open-source APIs such as BarCodeScanner and OpenFoodFacts to provide users with instant access to nutritional data by scanning product barcodes...</p>
-            </div>
-            <div class="project-item">
-                <h3>ConnecTM <span class="project-date">(2024)</span></h3>
-                <p>ConnecTM was born from the vision of creating a better city. My team and I developed the concept of an app that allows users to flag issues around the city, such as potholes, fallen trees, broken benches, and more...</p>
+            <div class="project-grid">
+                <div class="project-item">
+                    <h3>DaemonView <span class="project-date">(2025)</span></h3>
+                    <p>DaemonView is a web-based operational dashboard developed in collaboration with Nokia. Designed to assist internal teams in monitoring and managing tickets, DaemonView provides both clarity and control through an intuitive user interface.</p>
+                    <a href="https://github.com/Jasmine-Afrem/DaemonView" class="project-link" target="_blank">
+                        <svg width="16" height="16"><use xlink:href="#icon-github"></use></svg>
+                        View on GitHub
+                    </a>
+                </div>
+                <div class="project-item">
+                    <h3>HealthSentinel <span class="project-date">(2025)</span></h3>
+                    <p>HealthSentinel is an innovative platform that facilitates the digitalization of medical documents, providing an efficient and accessible system for both medical staff and patients. It was developed as part of the ITFEST25 competition.</p>
+                    <a href="https://github.com/Jasmine-Afrem/ITFEST-2025" class="project-link" target="_blank">
+                        <svg width="16" height="16"><use xlink:href="#icon-github"></use></svg>
+                        View on GitHub
+                    </a>
+                </div>
+                <div class="project-item">
+                    <h3>Quizzy - Trivia Game <span class="project-date">(2024)</span></h3>
+                    <p>Quizzy is an engaging trivia game app built with Java for robust functionality and MySQL for efficient data management. Designed to deliver a fun and challenging experience, Quizzy caters to trivia enthusiasts.</p>
+                    <a href="https://github.com/Jasmine-Afrem/Quizzy_Java" class="project-link" target="_blank">
+                        <svg width="16" height="16"><use xlink:href="#icon-github"></use></svg>
+                        View on GitHub
+                    </a>
+                </div>
+                <div class="project-item">
+                    <h3>ConnecTM <span class="project-date">(2024)</span></h3>
+                    <p>ConnecTM is a concept app developed for ITFest, allowing users to flag city issues like potholes or broken benches, aiming to improve urban living. (Conceptual, front-end/design focus)</p>
+                     <a href="https://github.com/Jasmine-Afrem/Connectm" class="project-link" target="_blank">
+                        <svg width="16" height="16"><use xlink:href="#icon-github"></use></svg>
+                        View on GitHub
+                    </a>
+                </div>
+                <div class="project-item">
+                    <h3>NutriHub <span class="project-date">(Nov 2023)</span></h3>
+                    <p>NutriHub is a nutrition app providing instant nutritional data by scanning product barcodes. Developed with React Native, Expo GO, BarCodeScanner API, and OpenFoodFacts API during Unihack.</p>
+                    <a href="https://github.com/Jasmine-Afrem/NutriHub" class="project-link" target="_blank">
+                        <svg width="16" height="16"><use xlink:href="#icon-github"></use></svg>
+                        View on GitHub
+                    </a>
+                </div>
             </div>
         </section>
 
         <section id="competitions" class="content-section">
             <h2>Competitions</h2>
             <ul class="competitions-list">
-                <li><strong>2024 | ITFest:</strong> 2nd place (ConnecTM)</li>
-                <li><strong>2023 | Unihack 5th Edition:</strong> 5th place (NutriHub)</li>
+                <li><strong> 2025 | UniVsThreads25 CTF:</strong></li>
+                <li><strong> 2025 | UniHack:</strong> (ConnecTMv2)</li>
+                <li><strong> 2025 | ITFest:</strong> (HealthSentinel)</li>
+                <li><strong> 2024 | ITFest:</strong> 2nd place (ConnecTM)</li>
+                <li><strong> 2023 | Unihack 5th Edition:</strong> 5th place (NutriHub)</li>
             </ul>
         </section>
 
