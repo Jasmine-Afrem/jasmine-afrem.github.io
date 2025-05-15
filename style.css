@@ -1,422 +1,573 @@
+/* style.css */
+
+/* 1. Global Styles & Variables */
 :root {
-    --primary-purple-deep: #6a11cb;
-    --primary-purple-mid: #8e2de2;
-    --accent-pink: #f80759;
-    --accent-magenta: #bc4e9c;
-    --bg-light: #f4f6f8;
-    --bg-dark-section: #2c003e;
-    --text-light: #ffffff;
+    --primary-purple: #7F00FF; /* Violet */
+    --primary-purple-dark: #6A0DAD;
+    --secondary-purple: #A4508B; /* Pinkish-purple for gradients */
+    --light-purple-accent: #BE93FD;
+    --very-light-purple-bg: #F3E8FF; /* Light lavender for backgrounds */
+    --footer-bg: #3B0764; /* Deep dark purple */
+
+    --text-light: #F5F5F5;
     --text-dark: #333333;
-    --text-muted: #adb5bd;
-    --nav-height: 65px;
-    --font-primary: 'Lato', sans-serif;
-    --font-headings: 'Montserrat', sans-serif;
-    --border-radius-main: 12px;
-    --shadow-soft: 0 8px 25px rgba(0, 0, 0, 0.1);
-    --shadow-interactive: 0 4px 15px rgba(142, 45, 226, 0.3);
+    --text-muted: #666666;
+    --bg-light: #FFFFFF;
+    --bg-ultra-light-gray: #f8f9fa; /* Very light gray for content sections */
+
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Lato', sans-serif;
+
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s ease;
 }
 
-* {
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 html {
     scroll-behavior: smooth;
-    font-size: 16px;
+    font-size: 16px; /* Base font size */
 }
 
 body {
-    font-family: var(--font-primary);
-    line-height: 1.7;
-    background-color: var(--bg-light);
+    font-family: var(--font-secondary);
     color: var(--text-dark);
-    padding-top: var(--nav-height);
-    overflow-x: hidden;
+    line-height: 1.6;
+    background-color: var(--bg-ultra-light-gray);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-primary);
+    font-weight: 700;
+    color: var(--primary-purple-dark);
+    margin-bottom: 0.75em;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2rem; margin-bottom: 1em; }
+h3 { font-size: 1.4rem; color: var(--primary-purple); }
+
+a {
+    text-decoration: none;
+    color: var(--primary-purple);
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--secondary-purple);
+}
+
+ul {
+    list-style: none;
+}
+
+img, svg {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+}
+
+/* 2. Navigation */
 .main-nav {
-    background: linear-gradient(90deg, var(--primary-purple-deep), var(--primary-purple-mid));
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 1rem 0;
     position: fixed;
+    width: 100%;
     top: 0;
     left: 0;
-    width: 100%;
-    height: var(--nav-height);
     z-index: 1000;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 25px;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
 }
 
 .nav-logo {
-    font-family: var(--font-headings);
-    font-size: 1.7rem;
-    color: var(--text-light);
-    text-decoration: none;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: opacity 0.3s ease;
+    font-family: var(--font-primary);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-purple);
 }
+
 .nav-logo:hover {
-    opacity: 0.85;
+    color: var(--secondary-purple);
 }
 
 .main-nav ul {
-    list-style: none;
     display: flex;
+    gap: 1.5rem;
 }
 
 .main-nav ul li a {
-    color: rgba(255,255,255,0.85);
-    text-decoration: none;
-    padding: 10px 18px;
-    margin: 0 6px;
-    font-family: var(--font-headings);
+    font-family: var(--font-primary);
     font-weight: 500;
-    font-size: 0.9rem;
-    border-radius: 20px;
+    color: var(--text-dark);
+    padding: 0.5rem 0;
     position: relative;
-    transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-.main-nav ul li a:hover,
-.main-nav ul li a.active-link {
-    color: var(--text-light);
-    background-color: rgba(255,255,255,0.15);
-}
-
-header#home {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: calc(85vh - var(--nav-height));
-    padding: 80px 25px;
-    background: linear-gradient(135deg, var(--primary-purple-deep) 0%, var(--accent-magenta) 100%);
-    color: var(--text-light);
-    position: relative;
-    overflow: hidden;
-}
-
-header#home::before {
+.main-nav ul li a::after {
     content: '';
     position: absolute;
-    bottom: -1px;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-purple);
+    transition: width var(--transition-speed);
+}
+
+.main-nav ul li a:hover::after,
+.main-nav ul li a.active::after { /* Add .active class with JS for current section */
+    width: 100%;
+}
+
+/* Mobile Nav - Placeholder for hamburger functionality */
+.nav-toggle {
+    display: none; /* Hidden by default, shown in media query */
+    /* Style your hamburger icon here if you add one */
+}
+
+
+/* 3. Header / Hero (#home) */
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 20px 60px; /* Adjusted padding for fixed nav */
+    background-image: linear-gradient(135deg, var(--primary-purple-dark) 0%, var(--secondary-purple) 100%);
+    color: var(--text-light);
+    position: relative;
+    overflow: hidden; /* For potential pseudo-element shapes */
+}
+
+/* Optional: subtle wave effect (simplified) */
+#home::before {
+    content: '';
+    position: absolute;
+    bottom: -1px; /* Ensure it covers the edge */
     left: 0;
     width: 100%;
-    height: 120px;
-    background: var(--bg-light);
-    clip-path: polygon(0 100%, 100% 25%, 100% 100%);
+    height: 100px; /* Adjust height of the wave */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fa' fill-opacity='1' d='M0,192L48,176C96,160,192,128,288,133.3C384,139,480,181,576,208C672,235,768,245,864,224C960,203,1056,149,1152,117.3C1248,85,1344,75,1392,69.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    z-index: 1;
 }
 
 
 .header-content {
-    animation: fadeInFromBottom 1s ease-out 0.2s forwards;
-    opacity: 0;
-    position: relative;
-    z-index: 1;
+    position: relative; /* To be above pseudo-elements */
+    z-index: 2;
+    max-width: 800px;
 }
 
-@keyframes fadeInFromBottom {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-header h1 {
-    font-family: var(--font-headings);
-    font-size: clamp(2.8rem, 7vw, 5rem);
-    margin-bottom: 15px;
+.header-content h1 {
+    font-size: 3.5rem;
     font-weight: 800;
-    letter-spacing: -1px;
-    text-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
 }
 
-header .subtitle {
-    font-size: clamp(1.1rem, 3vw, 1.6rem);
-    font-weight: 400;
-    color: rgba(255,255,255,0.85);
-    margin-bottom: 30px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+.header-content .subtitle {
+    font-size: 1.5rem;
+    font-family: var(--font-secondary);
+    font-weight: 300;
+    color: var(--light-purple-accent);
+    margin-bottom: 1.5rem;
 }
 
-header .contact-info {
-    margin-bottom: 30px;
-    font-size: 0.95rem;
+.contact-info {
+    margin-bottom: 1.5rem;
 }
-header .contact-info p {
-    margin-bottom: 12px;
+
+.contact-info p {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    color: rgba(255,255,255,0.9);
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
 }
-header .contact-info a {
-    color: rgba(255,255,255,0.9);
-    text-decoration: none;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-}
-header .contact-info a:hover {
-    color: var(--text-light);
-    text-decoration: underline;
-}
-header .contact-info svg {
-    fill: var(--text-light);
+
+.contact-info svg {
+    fill: var(--light-purple-accent);
     width: 18px;
     height: 18px;
-    opacity: 0.8;
 }
 
-.social-links a {
+.contact-info a {
     color: var(--text-light);
-    margin: 0 12px;
-    font-size: 1.7rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-    opacity: 0.8;
+    font-weight: 400;
 }
-.social-links a:hover {
-    color: var(--text-light);
-    opacity: 1;
-    transform: scale(1.15);
+.contact-info a:hover {
+    color: var(--very-light-purple-bg);
+    text-decoration: underline;
 }
-.social-links svg {
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.social-links a svg {
     width: 28px;
     height: 28px;
-    vertical-align: middle;
+    fill: var(--text-light);
+    transition: fill var(--transition-speed), transform var(--transition-speed);
 }
 
+.social-links a:hover svg {
+    fill: var(--light-purple-accent);
+    transform: scale(1.1);
+}
+
+/* 4. Main Content & Generic Section Styling */
 .main-content-area {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 50px 25px;
+    padding-top: 60px; /* Space for sections below hero */
+    padding-bottom: 60px;
 }
 
 .content-section {
-    background-color: var(--text-light);
-    padding: 40px 35px;
-    margin-bottom: 40px;
-    border-radius: var(--border-radius-main);
-    box-shadow: var(--shadow-soft);
-    opacity: 0;
-    transform: translateY(25px);
-    animation: sectionFadeIn 0.7s ease-out forwards;
+    max-width: 900px;
+    margin: 0 auto 4rem auto;
+    padding: 2rem;
+    background-color: var(--bg-light);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow);
 }
 
-@keyframes sectionFadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.content-section:last-child {
+    margin-bottom: 0;
 }
-
-.main-content-area > .content-section:nth-child(1) { animation-delay: 0.1s; }
-.main-content-area > .content-section:nth-child(2) { animation-delay: 0.2s; }
-.main-content-area > .content-section:nth-child(3) { animation-delay: 0.3s; }
-.main-content-area > .content-section:nth-child(4) { animation-delay: 0.4s; }
-.main-content-area > .content-section:nth-child(5) { animation-delay: 0.5s; }
-.main-content-area > .content-section:nth-child(6) { animation-delay: 0.6s; }
 
 .content-section h2 {
-    font-family: var(--font-headings);
-    font-size: 2.2rem;
-    color: var(--primary-purple-deep);
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 3px solid var(--primary-purple-mid);
-    display: inline-block;
-    font-weight: 700;
+    text-align: center;
+    position: relative;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem; /* Increased margin after h2 */
 }
 
+.content-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--primary-purple);
+    border-radius: var(--border-radius-sm);
+}
+
+/* 5. Specific Sections Styling */
+
+/* About Section */
+#about p {
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+/* Skills Section */
 .skills-list {
-    list-style: none;
-    padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 0.75rem;
+    justify-content: center;
 }
 
 .skills-list li {
-    background: linear-gradient(135deg, var(--primary-purple-mid), var(--accent-magenta));
-    color: var(--text-light);
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-size: 0.9rem;
+    background-color: var(--very-light-purple-bg);
+    color: var(--primary-purple-dark);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-secondary);
     font-weight: 500;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-.skills-list li:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-interactive);
+    font-size: 0.95rem;
+    border: 1px solid var(--light-purple-accent);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-.project-item, .education-item {
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e9ecef;
+.skills-list li:hover {
+    background-color: var(--primary-purple);
+    color: var(--text-light);
+    border-color: var(--primary-purple);
 }
-.project-item:last-child, .education-item:last-child {
+
+/* Projects Section */
+.project-item {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius-md);
+    background-color: #fff;
+    transition: box-shadow var(--transition-speed), transform var(--transition-speed);
+}
+
+.project-item:hover {
+    box-shadow: 0 6px 16px rgba(127, 0, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.project-item:last-child {
+    margin-bottom: 0;
+}
+
+.project-item h3 {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.project-date {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-left: 0.5rem; /* Spacing if h3 wraps */
+}
+
+.project-item p {
+    font-size: 1rem;
+    color: var(--text-muted);
+}
+
+/* Competitions Section */
+.competitions-list li {
+    margin-bottom: 0.75rem;
+    padding-left: 1.2rem;
+    position: relative;
+    font-size: 1.05rem;
+}
+
+.competitions-list li::before {
+    content: '🏆'; /* Or a purple dot/icon */
+    position: absolute;
+    left: 0;
+    top: 1px;
+    /* color: var(--primary-purple); */ /* if using a text character */
+}
+
+.competitions-list li strong {
+    font-weight: 600;
+    color: var(--primary-purple-dark);
+}
+
+/* Education Section */
+.education-item {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px dashed #e0e0e0;
+}
+.education-item:last-child {
     margin-bottom: 0;
     padding-bottom: 0;
     border-bottom: none;
 }
 
-.project-item h3, .education-item h3 {
-    font-family: var(--font-headings);
-    font-size: 1.5rem;
-    color: var(--primary-purple-deep);
-    margin-bottom: 8px;
-    font-weight: 600;
+.education-item h3 {
+    margin-bottom: 0.3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
-.project-date, .education-date {
+.education-date {
     font-size: 0.9rem;
-    color: var(--text-muted);
     font-weight: 400;
-    margin-bottom: 10px;
-    display: block;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-left: 0.5rem;
 }
 
-.project-item p, .education-item p, #about p {
-    margin-bottom: 10px;
-    color: var(--text-dark);
+.education-item p {
     font-size: 1rem;
-    line-height: 1.8;
+    color: var(--text-muted);
 }
 
-.competitions-list, .languages-list {
-    list-style-type: none;
-    padding-left: 0;
-}
-.competitions-list li, .languages-list li {
-    margin-bottom: 12px;
-    font-size: 1rem;
-    padding-left: 25px;
+
+/* Languages Section */
+.languages-list li {
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+    padding-left: 1.2rem;
     position: relative;
 }
-.competitions-list li::before, .languages-list li::before {
-    content: '✓';
+
+.languages-list li::before {
+    content: '🗣️'; /* Or a purple dot/icon */
     position: absolute;
     left: 0;
-    color: var(--primary-purple-mid);
-    font-weight: bold;
-    font-size: 1.1em;
-}
-.competitions-list li strong {
-    color: var(--primary-purple-deep);
-    font-weight: 600;
+    top: 1px;
 }
 
+/* 6. Footer */
 footer {
-    background: var(--bg-dark-section);
-    color: rgba(255,255,255,0.7);
+    background-color: var(--footer-bg);
+    color: var(--text-light);
     text-align: center;
-    padding: 40px 25px;
+    padding: 2rem 1rem;
+    margin-top: 3rem; /* Ensure space before footer */
+}
+
+.footer-container p {
     font-size: 0.9rem;
-    margin-top: 50px;
-    border-top: 5px solid var(--primary-purple-mid);
+    color: var(--light-purple-accent);
 }
 
-footer p {
-    margin: 0;
-}
+/* 7. Responsive Design (Media Queries) */
 
+/* Tablets and larger phones */
 @media (max-width: 992px) {
-    header#home::before {
-        height: 90px;
-        clip-path: polygon(0 100%, 100% 40%, 100% 100%);
+    .header-content h1 {
+        font-size: 2.8rem;
     }
-    .content-section h2 {
-        font-size: 2rem;
+    .header-content .subtitle {
+        font-size: 1.3rem;
     }
-    .project-item h3, .education-item h3 {
-        font-size: 1.35rem;
+    .content-section {
+        padding: 1.5rem;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 }
 
+/* Mobile devices */
 @media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .main-nav {
-        height: auto;
-    }
-    body {
-        padding-top: 110px;
-    }
     .main-nav ul {
-        margin-top: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
+        /* Basic mobile nav: stack items. For a real hamburger, JS is needed */
+        /* display: none; */ /* Hidden by default, toggled by JS */
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Position below nav bar */
+        left: 0;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 1rem 0;
+        /* Initially hidden */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+    }
+    /* Example: if nav has 'mobile-nav-open' class */
+    /* .main-nav.mobile-nav-open ul {
+        max-height: 500px;
+    } */
+
+    .main-nav ul li {
+        text-align: center;
+        width: 100%;
     }
     .main-nav ul li a {
-        padding: 8px 12px;
-        font-size: 0.85rem;
-        margin: 3px;
+        display: block;
+        padding: 0.8rem 1rem;
+    }
+    .main-nav ul li a::after { /* Adjust underline for stacked items */
+        left: 50%;
+        transform: translateX(-50%);
     }
 
-    header#home {
-        min-height: calc(70vh - var(--nav-height));
-        padding: 60px 20px;
+    .nav-toggle {
+        display: block; /* Show hamburger icon */
+        /* Add styles for your hamburger icon button here */
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        color: var(--primary-purple);
+        cursor: pointer;
     }
-    header#home::before {
-        height: 70px;
-        clip-path: polygon(0 100%, 100% 50%, 100% 100%);
+
+    /* Fallback for no JS: Always show stacked nav items on mobile */
+    /* If you don't implement a JS toggle, you might want to always show them stacked: */
+    /* .main-nav ul { display: flex; flex-direction: column; ... } */
+
+
+    #home {
+        padding-top: 100px; /* Adjust for nav height */
+        padding-bottom: 40px;
     }
-    header h1 {
-        font-size: clamp(2.2rem, 6vw, 3.5rem);
+    #home::before { /* Adjust wave for smaller screens or remove */
+        height: 80px;
     }
-    header .subtitle {
-        font-size: clamp(1rem, 2.5vw, 1.3rem);
+
+    .header-content h1 {
+        font-size: 2.2rem;
     }
+    .header-content .subtitle {
+        font-size: 1.1rem;
+    }
+    .contact-info p {
+        font-size: 0.9rem;
+        flex-direction: column; /* Stack icon and text if too long */
+        gap: 0.2rem;
+    }
+
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.7rem; }
+    h3 { font-size: 1.2rem; }
 
     .content-section {
-        padding: 30px 25px;
+        margin-left: 15px;
+        margin-right: 15px;
+        padding: 1rem;
     }
-    .content-section h2 {
-        font-size: 1.8rem;
-    }
+
     .project-item h3, .education-item h3 {
-        font-size: 1.25rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .project-date, .education-date {
+        margin-left: 0;
+        margin-top: 0.25rem;
     }
 }
 
 @media (max-width: 480px) {
-    body {
-        padding-top: 120px;
+    body { font-size: 15px; } /* Slightly smaller base for very small screens */
+
+    .nav-container { padding: 0 15px; }
+
+    .header-content h1 {
+        font-size: 1.8rem;
     }
-    header h1 {
-        font-size: clamp(2rem, 7vw, 3rem);
+    .header-content .subtitle {
+        font-size: 1rem;
     }
-    header .subtitle {
-        font-size: clamp(0.9rem, 2.8vw, 1.2rem);
+    .social-links a svg {
+        width: 24px;
+        height: 24px;
     }
-    .skills-list {
-        gap: 10px;
-    }
+
     .skills-list li {
-        padding: 8px 15px;
         font-size: 0.85rem;
-    }
-    .content-section h2 {
-        font-size: 1.6rem;
+        padding: 0.4rem 0.8rem;
     }
 }
