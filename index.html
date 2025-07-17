@@ -6,90 +6,203 @@
     <title>Jasmine Afrem - Computer Science Student</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@0.9.490/build/spline-viewer.js"></script>
 </head>
 <body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-container">
+            <div class="loader-container">
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+                <div class="loader-dot"></div>
+            </div>
+            <div class="loading-text">
+                <span class="letter">L</span>
+                <span class="letter">o</span>
+                <span class="letter">a</span>
+                <span class="letter">d</span>
+                <span class="letter">i</span>
+                <span class="letter">n</span>
+                <span class="letter">g</span>
+                <span class="letter">.</span>
+                <span class="letter">.</span>
+                <span class="letter">.</span>
+            </div>
+        </div>
+    </div>
+
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="icon-github" viewBox="0 0 16 16">
             <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
         </symbol>
     </svg>
 
-    <nav class="main-nav">
+    <nav class="glass-nav">
         <div class="nav-container">
             <a href="#home" class="nav-logo">Personal Website</a>
-            <ul>
+            <ul class="nav-menu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#competitions">Competitions</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#languages">Languages</a></li>
             </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <header id="home">
-        <div class="header-content">
-            <h1>JASMINE AFREM</h1>
-            <p class="subtitle">Computer Science Student</p>
-            <div class="contact-info">
-                <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
-                    </svg>
-                    <a href="mailto:afrem.jasmine@gmail.com">afrem.jasmine@gmail.com</a>
-                </p>
-                 <p>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
-                    </svg>
-                    Timisoara, Romania
-                </p>
-            </div>
-            <div class="social-links">
-                <a href="https://github.com/Jasmine-Afrem" target="_blank" title="GitHub">
-                    <svg width="24" height="24" fill="currentColor"><use xlink:href="#icon-github"></use></svg>
-                </a>
-                <a href="https://www.linkedin.com/in/jasmine-emilia-afrem-371505332/" target="_blank" title="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-                    </svg>
-                </a>
+    <section id="home" class="landing-section">
+        <div class="spline-container">
+            <spline-viewer url="https://prod.spline.design/WwNv1IiMUq5OOuJ8/scene.splinecode" loading-anim></spline-viewer>
+        </div>
+        <div class="landing-content">
+            <h1 class="landing-title">JASMINE AFREM</h1>
+            <p class="landing-subtitle">Computer Science Student & Web Developer</p>
+            <div class="landing-cta">
+                <a href="#about" class="cta-button">Explore My Work</a>
             </div>
         </div>
-    </header>
+    </section>
 
-</body>
-</html>
-
-    <main class="main-content-area">
-        <section id="about" class="content-section">
+    <main class="main-content">
+        <section id="about" class="content-section animate-on-scroll">
             <h2>About Me</h2>
-            <p>I'm a second-year Computer Science student with a strong interest in learning and improving my skills, especially in web development. I enjoy combining creativity and problem-solving to build useful and user-friendly websites. Right now, I'm focusing on learning modern web frameworks and programming languages. I'm always open to new challenges that help me grow and stay updated with the latest trends in tech.</p>
+            <p>I’m a third-year Computer Science student with a focus on web development, driven by a passion for continuous learning and improvement. I enjoy blending creativity with problem-solving to build practical, user-friendly websites. Currently, I’m expanding my knowledge of modern web frameworks and programming languages, and I’m always eager to take on new challenges that help me grow and stay current with evolving technologies.</p>
         </section>
 
-        <section id="skills" class="content-section">
+        <section id="skills" class="content-section animate-on-scroll">
             <h2>Skills</h2>
-            <ul class="skills-list">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>JavaScript</li>
-                <li>React</li>
-                <li>React Native</li>
-                <li>Next.js</li>
-                <li>Java</li>
-                <li>Python</li>
-                <li>C/C++</li>
-                <li>MySQL</li>
-            </ul>
+            <div class="skills-container">
+              <div class="skill-category">
+                <div class="category-title">
+                  <svg class="category-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3 4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4zm2 1v14h14V5H5zm2 2h10v2H7V7zm0 4h10v2H7v-2zm0 4h6v2H7v-2z"/>
+                  </svg>
+                  Frontend
+                </div>
+                <ul class="skills-list">
+                  <li>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5 logo" class="skill-icon" />
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5" target="_blank" rel="noopener noreferrer">HTML5</a>
+                  </li>
+                  <li>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3 logo" class="skill-icon" />
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer">CSS3</a>
+                  </li>
+                  <li>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript logo" class="skill-icon" />
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">JavaScript</a>
+                  </li>
+                  <li>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript logo" class="skill-icon" />
+                    <a href="https://www.typescriptlang.org/docs/" target="_blank" rel="noopener noreferrer">TypeScript</a>
+                  </li>
+                </ul>
+              </div>
+          
+              <div class="skill-category">
+                <div class="category-title">
+                  <svg class="category-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.82L4.26 7 2 8.18l10 5 10-5L19.74 7 12 9.82zM2 13.18l10 5 10-5-2.26-1.18L12 15.82 4.26 12z"/>
+                  </svg>
+                  Frameworks & Libraries
+                </div>
+                <ul class="skills-list">
+                  <li>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React logo" class="skill-icon" />
+                    <a href="https://reactjs.org/docs/getting-started.html" target="_blank" rel="noopener noreferrer">React</a>
+                  </li>
+                  <li>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React Native logo" class="skill-icon" />
+                    <a href="https://reactnative.dev/docs/getting-started" target="_blank" rel="noopener noreferrer">React Native</a>
+                  </li>
+                  <li>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js logo" class="skill-icon" />
+                    <a href="https://nextjs.org/docs" target="_blank" rel="noopener noreferrer">Next.js</a>
+                  </li>
+                </ul>
+              </div>
+          
+              <div class="skill-category">
+                <div class="category-title">
+                  <svg class="category-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zm0 7.82L4.26 7 2 8.18l10 5 10-5L19.74 7 12 9.82zM2 13.18l10 5 10-5-2.26-1.18L12 15.82 4.26 12z"/>
+                  </svg>
+                  Backend
+                </div>
+                <ul class="skills-list">
+                  <li>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express logo" class="skill-icon" />
+                    <a href="https://expressjs.com/en/starter/installing.html" target="_blank" rel="noopener noreferrer">Express (Node.js)</a>
+                  </li>
+                </ul>
+              </div>
+          
+              <div class="skill-category">
+                <div class="category-title">
+                  <svg class="category-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8 4L4 12l4 8H6l-4-8 4-8h2zm8 0h2l4 8-4 8h-2l4-8-4-8z"/>
+                  </svg>
+                  Programming Languages
+                </div>
+                <ul class="skills-list">
+                  <li>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java logo" class="skill-icon" />
+                    <a href="https://docs.oracle.com/en/java/" target="_blank" rel="noopener noreferrer">Java</a>
+                  </li>
+                  <li>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python logo" class="skill-icon" />
+                    <a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Python</a>
+                  </li>
+                  <li>
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++ logo" class="skill-icon" />
+                    <a href="https://isocpp.org/std/the-standard" target="_blank" rel="noopener noreferrer">C/C++</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section> 
+        
+        <section id="experience" class="content-section animate-on-scroll">
+            <h2>Experience</h2>
+            <div class="project-grid">
+                <div class="project-item">
+                    <h3>Frontend Developer<span class="project-date">(Summer Practice, IBM Romania)</span></h3>
+                    <p>Completed a summer practice at IBM Romania as a Frontend Developer, where I created a web-based application named <strong>WiseTrack</strong>, a personal expense manager that improved my knowledge in TypeScript, Next.js, Express.js, and Atomic Design. I also collaborated with a professional team to enhance my skills in React, Next.js, and UI/UX best practices.</p>
+                </div>
+            </div>
         </section>
 
-        <section id="projects" class="content-section">
+        <section id="projects" class="content-section animate-on-scroll">
             <h2>Projects</h2>
             <div class="project-grid">
+                <div class="project-item">
+                    <h3>WiseTrack <span class="project-date">(2025)</span></h3>
+                    <p>Wise Track is a modern personal finance management web application built with Next.js and React. It helps users track expenses, visualize spending, and achieve financial wellness. A summer practice project made in collaboration with IBM.</p>
+                    <a href="https://github.com/Jasmine-Afrem/WiseTrack" class="project-link" target="_blank">
+                        <svg width="16" height="16"><use xlink:href="#icon-github"></use></svg>
+                        View on GitHub
+                    </a>
+                </div>
                 <div class="project-item">
                     <h3>DaemonView <span class="project-date">(2025)</span></h3>
                     <p>DaemonView is a web-based operational dashboard developed in collaboration with Nokia. Designed to assist internal teams in monitoring and managing tickets, DaemonView provides both clarity and control through an intuitive user interface.</p>
                     <a href="https://github.com/Jasmine-Afrem/DaemonView" class="project-link" target="_blank">
+                        <svg width="16" height="16"><use xlink:href="#icon-github"></use></svg>
+                        View on GitHub
+                    </a>
+                </div>
+                <div class="project-item">
+                    <h3>Lexify <span class="project-date">(2025)</span></h3>
+                    <p>Lexify! An interactive Android word guessing game designed to make learning new vocabulary fun and engaging. Lexify challenges players to guess words based on clues, with a strong emphasis on understanding word meanings, synonyms, and usage contexts.</p>
+                    <a href="https://github.com/Jasmine-Afrem/Lexify" class="project-link" target="_blank">
                         <svg width="16" height="16"><use xlink:href="#icon-github"></use></svg>
                         View on GitHub
                     </a>
@@ -137,7 +250,7 @@
             </div>
         </section>
 
-        <section id="competitions" class="content-section">
+        <section id="competitions" class="content-section animate-on-scroll">
             <h2>Competitions</h2>
             <ul class="competitions-list">
                 <li><strong> 2025 | UniVsThreads25 CTF</strong></li>
@@ -148,7 +261,7 @@
             </ul>
         </section>
 
-        <section id="education" class="content-section">
+        <section id="education" class="content-section animate-on-scroll">
             <h2>Education</h2>
             <div class="education-item">
                 <h3>West University of Timisoara <span class="education-date">(2023-2026)</span></h3>
@@ -160,9 +273,9 @@
             </div>
         </section>
 
-        <section id="languages" class="content-section">
+        <section id="languages" class="content-section animate-on-scroll">
             <h2>Languages</h2>
-            <ul class="languages-list">
+            <ul class="competitions-list">
                 <li>Romanian (Native)</li>
                 <li>English (C2 - Proficient)</li>
             </ul>
@@ -177,7 +290,105 @@
 
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
-    </script>
 
+        const loadingScreen = document.getElementById('loading-screen');
+        let pageLoaded = false;
+        let splineLoaded = false;
+        let minLoadTime = 1800; 
+        let startTime = Date.now();
+
+        function hideLoadingScreen() {
+            const elapsedTime = Date.now() - startTime;
+            const remainingTime = Math.max(0, minLoadTime - elapsedTime);
+            
+            setTimeout(() => {
+                loadingScreen.classList.add('fade-out');
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 500);
+            }, remainingTime);
+        }
+
+        function checkIfReady() {
+            if (pageLoaded && splineLoaded) {
+                hideLoadingScreen();
+            }
+        }
+
+        window.addEventListener('load', function() {
+            pageLoaded = true;
+            checkIfReady();
+        });
+
+        window.addEventListener('load', function() {
+            const splineViewer = document.querySelector('spline-viewer');
+            if (splineViewer) {
+                console.log('Spline viewer found');
+                
+                splineViewer.addEventListener('load', function() {
+                    console.log('Spline loaded');
+                    splineLoaded = true;
+                    checkIfReady();
+                });
+                
+                setTimeout(() => {
+                    if (!splineLoaded) {
+                        console.log('Spline load timeout - assuming ready');
+                        splineLoaded = true;
+                        checkIfReady();
+                    }
+                }, 3000);
+            } else {
+                console.log('Spline viewer not found');
+                splineLoaded = true;
+                checkIfReady();
+            }
+        });
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(section => {
+            observer.observe(section);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    </script>
 </body>
-</html>
+</html> 
