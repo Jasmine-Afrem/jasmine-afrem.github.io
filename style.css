@@ -744,7 +744,7 @@ spline-viewer {
 
 .education-item p {
     font-size: 1.04rem;
-    color: var(--text-muted);
+    color: var(--text-dark);
     font-weight: 400;
     margin: 0;
     margin-top: 0.1rem;
@@ -1009,4 +1009,31 @@ footer {
 
 .content-section, #about, #skills, #experience, #projects, #competitions, #education, #languages {
   scroll-margin-top: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background: var(--very-light-purple-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--primary-purple), var(--secondary-purple));
+  border-radius: 8px;
+  border: 2px solid var(--very-light-purple-bg);
+  min-height: 40px;
+  transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--secondary-purple), var(--primary-purple));
+}
+
+::-webkit-scrollbar-track {
+  background: var(--very-light-purple-bg);
+  border-radius: 8px;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-purple) var(--very-light-purple-bg);
 }
