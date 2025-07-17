@@ -2,7 +2,7 @@
 
 This repository contains the source code for my personal portfolio website, showcasing my skills, projects, competitions, and educational background as a Computer Science student. The website is designed to be modern, responsive, and visually appealing with a purple-themed aesthetic.
 
-## ✨ Features
+##  Features
 
 *   **Modern Design:** Clean and contemporary layout with a consistent purple color scheme.
 *   **Responsive Layout:** Adapts seamlessly to various screen sizes (desktops, tablets, and mobile devices).
@@ -20,7 +20,7 @@ This repository contains the source code for my personal portfolio website, show
 *   **SVG Icons:** Used for enhanced visual appeal and scalability.
 *   **Google Fonts:** Utilizes 'Montserrat' for headings and 'Lato' for body text.
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 *   **HTML5:** For the structure of the website.
 *   **CSS3:** For styling, layout, responsiveness, and theming.
@@ -31,32 +31,32 @@ This repository contains the source code for my personal portfolio website, show
 *   **Google Fonts:** For custom typography.
 *   **SVG:** For icons and graphical elements.
 
-## 🚀 Getting Started
+##  Getting Started
 
 To view or work on this website locally:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Jasmine-Afrem/your-repo-name.git
+    > git clone https://github.com/Jasmine-Afrem/your-repo-name.git
     ```
     (Replace `your-repo-name` with the actual name of your repository if it's different from this example)
 2.  **Navigate to the project directory:**
     ```bash
-    cd your-repo-name
+    > cd your-repo-name
     ```
 3.  **Open `index.html` in your web browser:**
     *   You can usually just double-click the `index.html` file, or right-click and choose "Open with" your preferred browser.
 
 No special build steps or dependencies are required for this simple static website.
 
-## 📂 File Structure
+##  File Structure
 ```bash
 ├── index.html # Main HTML file
 ├── style.css # Main CSS file
 └── README.md # This README file
 ```
 
-## 🎨 Customization
+##  Customization
 
 ### Theme Colors and Fonts:
 The primary theme colors, fonts, and other global styles are defined as CSS variables at the top of `style.css` within the `:root` selector. You can easily modify these to change the overall look and feel.
