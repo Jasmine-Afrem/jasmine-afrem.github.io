@@ -367,7 +367,11 @@ spline-viewer {
     background: linear-gradient(90deg, var(--primary-purple), var(--light-purple-accent));
     border-radius: 2px;
 }
-
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
 #about p {
     font-size: 1.15em;
     text-align: justify;
